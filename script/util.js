@@ -7,11 +7,11 @@ const setTimer = function (a, b) {
 }
 
 const switchPages = function () {
-    if (localStorage.getItem("user") !== null) {
-        setTimer(() => window.location.replace("pages/dossier.html"), 1500)
+    const user = localStorage.getItem("user")
+    if (user !== null && user !== "") {
+        setTimer(() => window.location.replace("pages/dossier.html"), 1200)
     }
 }
-
 const loadModal = function () {
     modal.classList.toggle("none")
 }
@@ -63,6 +63,20 @@ const formatDate = function (timestamp) {
 }
 
 
+const getJudgement = function(rate) {
+    if (rate <= 10) return "your productivity is statically insignificant today. Pathetic."
+    if (rate <= 20) return "Your commitment is as reliable as Nigerian power supply."
+    if (rate <= 30) return "You're trying. Unfortunately, trying doesn't count."
+    if (rate <= 40) return "Mediocrity called. It wants its standards back."
+    if (rate <= 50) return "You're exactly average. Congratulations on achieving nothing remarkable."
+    if (rate <= 60) return "More than half. Your ancestors are mildly less disappointed."
+    if (rate <= 70) return "Decent. For someone with no actual ambition."
+    if (rate <= 80) return "You're doing well. Don't let it go to your head, it won't last."
+    if (rate <= 90) return "Impressive. Statistically anomalous for someone like you."
+    return "Almost perfect. Almost. That one failure haunts you doesn't it?"
+}
+
+
 const updateMetrics = function () {
     const todoItems = localStorage.getItem("todos")
     if (!todoItems) return
@@ -83,6 +97,8 @@ const updateMetrics = function () {
     successRate.innerHTML = rate + "%"
 
     successMeter.style.background = `conic-gradient(#fff 0% ${rate}%, #333 ${rate}% 100%)`
+    
+    judgement.innerHTML = getJudgement(rate)
 }
 
 const completeTask = function (checkbox) {

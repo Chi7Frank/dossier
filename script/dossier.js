@@ -6,6 +6,7 @@ const metricSuccess = document.getElementById("completed")
 const metricUpcoming = document.getElementById("upcoming")
 const successRate = document.getElementById("success-rate")
 const successMeter = document.querySelector(".success-meter")
+const judgement = document.getElementById("judgement")
 
 
 const addBtn = document.getElementById("add-btn")
