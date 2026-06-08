@@ -144,7 +144,7 @@ const generateTodoCards = function () {
         const status = getStatus(todoItem.expiry, todoItem.status)
         const isCompleted = status === "completed"
 
-        todoList.innerHTML += `
+        const newTodo= `
         <div class='todo-item ${todoItem.priority} ${status}' data-createdat='${todoItem.createdAt}' onclick='this.classList.toggle("expanded")'>
             <div class='todo-header'>
                 <span class='todo-category'>${todoItem.priority.toUpperCase()}</span>
@@ -169,6 +169,8 @@ const generateTodoCards = function () {
                 <span class='todo-expiry-value'>${todoItem.expiry}</span>
             </div>
         </div>`
+        
+      todoList.insertAdjacentHTML('afterbegin', newTodo)
     }
     updateMetrics()
 }
