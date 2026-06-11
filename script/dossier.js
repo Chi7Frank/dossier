@@ -34,6 +34,15 @@ user.innerHTML = localStorage.getItem("user");
 
 const addBtnHold = onLongPress(showButtonOptions, 600);
 
+const setMinExpiry = function () {
+  const now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  const minDateTime = now.toISOString().slice(0, 16);
+  expTime.setAttribute("min", minDateTime);
+};
+
+setMinExpiry();
+
 //show button options: Toggle visibility of add and clear buttons
 addBtn.addEventListener("touchstart", addBtnHold.start);
 addBtn.addEventListener("touchend", addBtnHold.cancel);
