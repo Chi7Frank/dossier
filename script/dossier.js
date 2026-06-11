@@ -32,8 +32,11 @@ const resetCancelBtn = document.querySelector(".no-btn");
 // welcome user
 user.innerHTML = localStorage.getItem("user");
 
+const addBtnHold = onLongPress(showButtonOptions, 600);
+
 //show button options: Toggle visibility of add and clear buttons
-addBtn.addEventListener("click", () => showButtonOptions());
+addBtn.addEventListener("touchstart", addBtnHold.start);
+addBtn.addEventListener("touchend", addBtnHold.cancel);
 //toggleModal
 addIcon.addEventListener("click", () => loadModal());
 cancel.addEventListener("click", () => loadModal());

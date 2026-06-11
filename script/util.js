@@ -3,7 +3,7 @@ const setLocalStorage = function (a, b) {
 };
 
 const setTimer = function (a, b) {
-  setTimeout(a, b);
+  return setTimeout(a, b);
 };
 
 const switchPages = function () {
@@ -13,8 +13,8 @@ const switchPages = function () {
   }
 };
 
-//BUTTON EXPANSION AND MODAL LOGIC
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//++++BUTTON EXPANSION AND MODAL LOGIC++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Button Expansion and Collapse: Click button to expand options, click outside to collapse
 const showButtonOptions = function () {
   addBtn.classList.add("expanded");
@@ -24,6 +24,16 @@ const showButtonOptions = function () {
       body.removeEventListener("click", hideOptions);
     }
   });
+};
+
+const onLongPress = function (callback, duration = 600) {
+  let pressTimer;
+  return {
+    start: () => {
+      pressTimer = setTimer(callback, duration);
+    },
+    cancel: () => clearTimeout(pressTimer),
+  };
 };
 
 // Load Form Modal: Toggle visibility of the form modal
@@ -42,6 +52,7 @@ const clearCompleted = function () {
   loadResetModal();
   generateTodoCards();
 };
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const storeTodo = function (todo) {
   const existing = localStorage.getItem("todos");
