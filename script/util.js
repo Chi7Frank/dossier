@@ -13,6 +13,11 @@ const switchPages = function () {
   }
 };
 
+const formatExpiry = function (expiry) {
+  const expiryWithGrace = new Date(expiry).getTime() + 2 * 60 * 60 * 1000;
+  return formatDate(expiryWithGrace);
+};
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //++++BUTTON EXPANSION AND MODAL LOGIC++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Button Expansion and Collapse: Click button to expand options, click outside to collapse
@@ -213,7 +218,7 @@ const generateTodoCards = function () {
             </div>
             <div class='todo-expanded-content'>
                 <span class='todo-expiry-label'>EXPIRES</span>
-                <span class='todo-expiry-value'>${todoItem.expiry}</span>
+                <span class='todo-expiry-value'>${formatExpiry(todoItem.expiry)}</span>
             </div>
         </div>`;
 
