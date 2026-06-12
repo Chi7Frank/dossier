@@ -1,137 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-    <link rel="stylesheet" href="styles/style.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/style.css" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json" />
+    <title>Dossier&mdash;System Initialization</title>
     <style>
-        /* ── LOGIN PAGE UNIQUE STYLES ── */
+      /* ── LOGIN PAGE UNIQUE STYLES ── */
 
-        .login-hero {
-            text-align: center;
-            padding: 3rem 0 2rem;
-        }
+      .login-hero {
+        text-align: center;
+        padding: 3rem 0 2rem;
+      }
 
-        .login-hero .system-label {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #999;
-            display: block;
-            margin-bottom: 0.8rem;
-        }
+      .login-hero .system-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #999;
+        display: block;
+        margin-bottom: 0.8rem;
+      }
 
-        .login-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
+      .login-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
 
-        .login-hero p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.6;
-            font-style: normal;
-            max-width: 20rem;
-            margin: 0 auto;
-        }
+      .login-hero p {
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.6;
+        font-style: normal;
+        max-width: 20rem;
+        margin: 0 auto;
+      }
 
-        .login-card {
-            border: 0.0625rem solid #ddd;
-            border-radius: 0.25rem;
-            padding: 2rem 1.5rem;
-            margin-top: 2.5rem;
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            gap: 1.4rem;
-        }
+      .login-card {
+        border: 0.0625rem solid #ddd;
+        border-radius: 0.25rem;
+        padding: 2rem 1.5rem;
+        margin-top: 2.5rem;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+      }
 
-        .login-card label {
-            display: block;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #888;
-            margin-bottom: 0.5rem;
-        }
+      .login-card label {
+        display: block;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #888;
+        margin-bottom: 0.5rem;
+      }
 
-        .login-card input {
-            width: 100%;
-            border: 0.0625rem solid #ddd;
-            border-radius: 0.2rem;
-            padding: 0.8rem 1rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            color: #111;
-            background: #fafafa;
-            box-sizing: border-box;
-            outline: none;
-            font-style: italic;
-            transition: border-color 0.2s;
-        }
+      .login-card input {
+        width: 100%;
+        border: 0.0625rem solid #ddd;
+        border-radius: 0.2rem;
+        padding: 0.8rem 1rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        color: #111;
+        background: #fafafa;
+        box-sizing: border-box;
+        outline: none;
+        font-style: italic;
+        transition: border-color 0.2s;
+      }
 
-        .login-card input:focus {
-            border-color: #111;
-            background: #fff;
-        }
+      .login-card input:focus {
+        border-color: #111;
+        background: #fff;
+      }
 
-        .login-card input::placeholder {
-            color: #bbb;
-            font-style: italic;
-        }
+      .login-card input::placeholder {
+        color: #bbb;
+        font-style: italic;
+      }
 
-        .start-btn {
-            display: block;
-            width: 100%;
-            background: #111;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            border-radius: 0.125rem;
-            cursor: pointer;
-            margin-top: 0.5rem;
-        }
+      .start-btn {
+        display: block;
+        width: 100%;
+        background: #111;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        border-radius: 0.125rem;
+        cursor: pointer;
+        margin-top: 0.5rem;
+      }
 
-        .login-disclaimer {
-            text-align: center;
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: #aaa;
-        }
+      .login-disclaimer {
+        text-align: center;
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #aaa;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <header></header>
 
     <div class="login-hero">
-        <span class="system-label">System Initialization</span>
-        <h1>Let's see how consistent you really are.</h1>
-        <p>This is not a space for aspirations. This is a ledger for objective performance. Your dossier begins now.</p>
+      <span class="system-label">System Initialization</span>
+      <h1>Let's see how consistent you really are.</h1>
+      <p>
+        This is not a space for aspirations. This is a ledger for objective
+        performance. Your dossier begins now.
+      </p>
     </div>
 
     <div class="login-card">
-        <div>
-            <label>Username</label>
-            <input id="user-name" type="text" placeholder="Who calls upon the great Dossier?"/>
-        </div>
+      <div>
+        <label>Username</label>
+        <input
+          id="user-name"
+          type="text"
+          placeholder="Who calls upon the great Dossier?"
+        />
+      </div>
 
-        <span id="start-btn" class="start-btn">Enter Dashboard</span>
-        <span class="login-disclaimer">Data logging commences upon entry</span>
+      <span id="start-btn" class="start-btn">Enter Dashboard</span>
+      <span class="login-disclaimer">Data logging commences upon entry</span>
     </div>
 
     <script src="script/util.js" defer></script>
     <script src="script/index.js" defer></script>
-</body>
+  </body>
 </html>

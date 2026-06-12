@@ -1,119 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
-   
-    <link rel="stylesheet" href="../styles/style.css"/>
-</head>
-<body>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon-16x16.png"
+    />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="../manifest.json" />
+  </head>
+  <body>
     <header></header>
-    <h1>&quot;Welcome <span id="user"></span>, <span id="judgement"></span>&quot;</h1>
-    
+    <h1>
+      &quot;Welcome <span id="user"></span>, <span id="judgement"></span>&quot;
+    </h1>
+
     <main>
-    <section class="metric">
-        <div class="metric-total" >
-            <span class="total-title">Total Task</span>
-            <h2 id="total" >0</h2>
-            <span class="total-desc">Logged Objectives</span>
+      <section class="metric">
+        <div class="metric-total">
+          <span class="total-title">Total Task</span>
+          <h2 id="total">0</h2>
+          <span class="total-desc">Logged Objectives</span>
         </div>
-        
+
         <div class="grid grid--2-cols metrics">
-            <div class="metric-ongoing" >
+          <div class="metric-ongoing">
             <span class="metric-title">Ongoing</span>
-            <h2 id="ongoing" >0</h2>
-        </div>
-        
-        <div class="metric-total" >
+            <h2 id="ongoing">0</h2>
+          </div>
+
+          <div class="metric-total">
             <span class="metric-title completed">Completed</span>
-            <h2 id="completed" >0</h2>
-        </div>
-        
-        <div class="metric-total" >
+            <h2 id="completed">0</h2>
+          </div>
+
+          <div class="metric-total">
             <span class="metric-title missed">Missed</span>
-            <h2 id="missed" >0</h2>
-        </div>
-        
-        <div class="metric-total" >
+            <h2 id="missed">0</h2>
+          </div>
+
+          <div class="metric-total">
             <span class="metric-title">Total Task</span>
-            <h2 id="upcoming" >0</h2>
+            <h2 id="upcoming">0</h2>
+          </div>
         </div>
-        </div>
-        
+
         <div class="success-rate">
-            <span class="success-title">Success Rate</span>
-            <div class="success-meter">
-               <div>
-                <h2 id="success-rate">0%</h2>
-               </div>
+          <span class="success-title">Success Rate</span>
+          <div class="success-meter">
+            <div>
+              <h2 id="success-rate">0%</h2>
             </div>
-            <span class="success-desc">Computing Failure...</span>
+          </div>
+          <span class="success-desc">Computing Failure...</span>
         </div>
-    </section>
-    
-    <section id="todo-list" class="todo-list"></section>
-        <div id="add-btn">
-            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="trash-icon lucide lucide-trash2-icon lucide-trash-2"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
-        </div>
-    
+      </section>
+
+      <section id="todo-list" class="todo-list"></section>
+      <div id="add-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="lucide lucide-plus-icon lucide-plus"
+        >
+          <path d="M5 12h14" />
+          <path d="M12 5v14" />
+        </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          class="trash-icon lucide lucide-trash2-icon lucide-trash-2"
+        >
+          <path d="M10 11v6" />
+          <path d="M14 11v6" />
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+          <path d="M3 6h18" />
+          <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        </svg>
+      </div>
     </main>
-    
 
     <div id="reset" class="none">
-        <div class="reset-card">
-            <h3>System Command</h3>
-            <span>Reset All Progress</span>
-            <p>Are you sure you want to reset your entire dossier? This action cannot be undone.</p>
-            <div class="reset-buttons">
-            <span class="yes-btn">Yes</span>
-            <span class="no-btn">No</span>
-            </div>
+      <div class="reset-card">
+        <h3>System Command</h3>
+        <span>Reset All Progress</span>
+        <p>
+          Are you sure you want to reset your entire dossier? This action cannot
+          be undone.
+        </p>
+        <div class="reset-buttons">
+          <span class="yes-btn">Yes</span>
+          <span class="no-btn">No</span>
         </div>
+      </div>
     </div>
-   
+
     <aside id="modal" class="none">
-        <form class="">
-            <div>
-               <h3>System Command</h4>
-               <span>New Obligation</span>
-            </div>
-            
-            <div>
-                <label >To-Do Title</label>
-            <input type="text" id="todo-title" placeholder="XY + 3" required/>            
-            </div>
-            
-            
-            <label >Description</label>
-            <textarea id="todo-desc" placeholder="Give us a little shitty explanation that justified why you will have failed to complete the task" required ></textarea>
-            
-            <div>
-                
-                <label>To-Do Priority</label>
-            <select id="todo-priority" required>
-                <option value="_blank"></option>
-                <option class="teal" value="low">Low</option>
-                <option class="purple" value="medium">Medium</option>
-                <option class="red" value="high">High</option>
-             </select>
-                
-                <label>To-Do Expires</label>
-                <input type="datetime-local" id="todo-expiry" required/>
-            </div>
-            
-            <div id="add-item" class="btn add-task-btn">Add Task</div>
-            <div id="cancel" class="btn cancel-btn">Cancel</div>
-        </form>
+      <form class="">
+        <div>
+          <h3>System Command</h3>
+          <span>New Obligation</span>
+        </div>
+
+        <div>
+          <label>To-Do Title</label>
+          <input type="text" id="todo-title" placeholder="XY + 3" required />
+        </div>
+
+        <label>Description</label>
+        <textarea
+          id="todo-desc"
+          placeholder="Give us a little shitty explanation that justified why you will have failed to complete the task"
+          required
+        ></textarea>
+
+        <div>
+          <label>To-Do Priority</label>
+          <select id="todo-priority" required>
+            <option value="_blank"></option>
+            <option class="teal" value="low">Low</option>
+            <option class="purple" value="medium">Medium</option>
+            <option class="red" value="high">High</option>
+          </select>
+
+          <label>To-Do Expires</label>
+          <input type="datetime-local" id="todo-expiry" required />
+        </div>
+
+        <div id="add-item" class="btn add-task-btn">Add Task</div>
+        <div id="cancel" class="btn cancel-btn">Cancel</div>
+      </form>
     </aside>
 
-   
-    
     <script src="../script/util.js" defer></script>
     <script src="../script/dossier.js" defer></script>
-    </body>
+  </body>
 </html>
