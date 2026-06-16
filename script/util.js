@@ -1,3 +1,15 @@
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/service-worker.js")
+    .then((registration) => {
+      console.log("Service worker registered:", registration);
+    })
+    .catch((error) => {
+      console.log("Service worker registration failed:", error);
+    });
+}
+
+// ################################################################################################################################################
 const setLocalStorage = function (a, b) {
   localStorage.setItem(a, b);
 };
@@ -223,12 +235,68 @@ const generateTodoCards = function () {
         </div>`;
 
     todoList.insertAdjacentHTML("afterbegin", newTodo);
+
+    if (todoItem.status !== "completed") {
+      handleExpiryNotifications(todoItem); // ✅ inside loop
+    }
   }
   updateMetrics();
+  // handleExpiryNotifications(todoItem);
 };
 
 const saveTodo = function () {
   if (collectFormData() === false) return;
   generateTodoCards();
   loadModal();
+};
+
+// NOTIFICATIONS
+const getTimeRemaining = function (expiry) {
+  return new Date(expiry).getTime() - Date.now();
+};
+
+const notifyExpiry = function (todoTitle) {
+  if (Notification.permission === "granted") {
+    new Notification("Dossier", {
+      body: `"${todoTitle}" has expired. Pathetic.`,
+    });
+  }
+};
+
+const notifyMissed = function (todoTitle) {
+  if (Notification.permission === "granted") {
+    new Notification("Dossier", {
+      body: `"${todoTitle}" is now officially missed. You had time.`,
+    });
+  }
+};
+
+const scheduleExpiryNotification = function (todo) {
+  const delay = getTimeRemaining(todo.expiry);
+  if (delay > 0) {
+    setTimer(() => notifyExpiry(todo.title), delay);
+  }
+};
+
+const scheduleMissedNotification = function (todo) {
+  const expiryTime = new Date(todo.expiry).getTime();
+  const missedTime = expiryTime + 2 * 60 * 60 * 1000;
+  const delay = missedTime - Date.now();
+  if (delay > 0) {
+    setTimer(() => {
+      notifyMissed(todo.title);
+    }, delay);
+  }
+};
+
+const handleExpiryNotifications = function (todo) {
+  const status = getStatus(todo.expiry, todo.status);
+
+  if (status === "upcoming") {
+    scheduleExpiryNotification(todo);
+  }
+
+  if (status === "upcoming" || status === "ongoing") {
+    scheduleMissedNotification(todo);
+  }
 };

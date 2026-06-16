@@ -34,6 +34,10 @@ user.innerHTML = localStorage.getItem("user");
 
 const addBtnHold = onLongPress(showButtonOptions, 600);
 
+if (Notification.permission === "default") {
+  Notification.requestPermission();
+}
+
 const setMinExpiry = function () {
   const now = new Date();
   now.setMinutes(now.getMinutes() - now.getTimezoneOffset());

@@ -18,6 +18,29 @@ body {
   font-size: 16px;
 }
 
+/* ── HEADER LOGO ── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: #111;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-family: "Newsreader", serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  color: #111;
+}
+
 /* ── ADD BUTTON (floating) ── */
 .add-btn,
 #add-btn {
