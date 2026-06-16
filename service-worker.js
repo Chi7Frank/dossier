@@ -1,4 +1,4 @@
-const CACHE_NAME = "dossier-v1";
+const CACHE_NAME = "dossier-v2";
 const FILES_TO_CACHE = [
   "/",
   "/home.html",

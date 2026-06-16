@@ -167,7 +167,7 @@
     </div>
 
     <aside id="modal" class="none">
-      <form class="">
+      <form id="form">
         <div>
           <h3>System Command</h3>
           <span>New Obligation</span>
@@ -203,6 +203,18 @@
       </form>
     </aside>
 
+    <script>
+      const testNotifBtn = document.getElementById("test-notif");
+      testNotifBtn.addEventListener("click", () => {
+        const testTodo = {
+          title: "Test Todo",
+          expiry: new Date(Date.now() + 10000).toISOString().slice(0, 16),
+          status: "upcoming",
+        };
+        handleExpiryNotifications(testTodo);
+        alert("Test scheduled, wait 10 seconds");
+      });
+    </script>
     <script src="../script/util.js" defer></script>
     <script src="../script/dossier.js" defer></script>
   </body>

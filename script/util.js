@@ -97,6 +97,9 @@ const collectFormData = function () {
     createdAt: Date.now(),
     status: "upcoming",
   };
+
+  toDoForm.reset();
+
   storeTodo(todo);
 };
 
