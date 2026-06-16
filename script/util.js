@@ -21,7 +21,7 @@ const setTimer = function (a, b) {
 const switchPages = function () {
   const user = localStorage.getItem("user");
   if (user !== null && user !== "") {
-    setTimer(() => window.location.replace("pages/dossier.html"), 1200);
+    setTimer(() => window.location.href("pages/dossier.html"), 1200);
   }
 };
 
