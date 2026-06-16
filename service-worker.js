@@ -25,8 +25,6 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-const CACHE_NAME = "dossier-v1";
-
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
